@@ -25,7 +25,7 @@ class TweetBot {
 
   getDirectMessage = () => {
     return new Promise((resolve, reject) => {
-      this.T.get("direct_message/events/list", (error, data) => {
+        this.T.get("direct_messages/events/list", (error, data) => {
         if (!error) {
           resolve(data);
         } else {

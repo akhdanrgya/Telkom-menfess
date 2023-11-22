@@ -26,7 +26,9 @@ const job = new CronJob(
 
 async function doJob() {
     const authenticatedProfile = await bot.getAdminUserInfo()
-    console.log(authenticatedProfile)
+    const dm = await bot.getDirectMessage()
+
+    console.log(dm)
 }
 
 // route section

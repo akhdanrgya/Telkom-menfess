@@ -10,8 +10,8 @@ require("dotenv").config();
 app.use(express.json());
 
 const tweetBot = new TweetBot({
-  consumer_key: "",
-  consumer_secret: "",
+  consumer_key: process.env.TWEET_API_KEY,
+  consumer_secret: process.env.TWEET_API_KEY_SECRET,
   acces_token: process.env.TWEET_ACCES_TOKEN,
   acces_token_secret: process.env.TWEET_ACCES_TOKEN_SECRET,
 });

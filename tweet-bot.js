@@ -14,12 +14,10 @@ class TweetBot {
         return new Promise((resolve, reject) => {
             this.T.get('account/verify_credentials', { skip_status: true })
                 .then(result => {
-                    const userId = result.data.id_str
-                    resolve(userId);
+                    resolve(result);
                 })
                 .catch(err => {
                     console.log('error on get admin <<<<<<<<<<<<<<');
-
                     reject(err);
                 })
         })

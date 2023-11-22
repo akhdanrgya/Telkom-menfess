@@ -1,6 +1,8 @@
 const express = require("express");
-
 const { TweetBot } = require("./tweet-bot");
+const corn = require('cron')
+
+require("dotenv").config();
 
 const app = express();
 const port = 5000;
@@ -8,10 +10,10 @@ const port = 5000;
 app.use(express.json());
 
 const tweetBot = new TweetBot({
-  consumer_key: "ZQSXNDpbWMhXPDqoNId6La3X8",
-  consumer_secret: "QLILdotFeFXruEU4zoQ8p9JTFSoCAts4ru8apBhAbljv0FCdEX",
-  access_token: "1528770397315174400-mtwc2AbbCeti9o5bFOfqo2whp3wmfr",
-  access_token_secret: "7BQ70Ef3gYAfpLZdKmN4W3PqwYYDBxBnqE4cc1RuUh1Qd",
+  consumer_key: process.env.TWEET_API_KEY,
+  consumer_secret: process.env.TWEET_API_KEY_SECRET,
+  access_token: process.env.TWEET_ACCES_TOKEN,
+  access_token_secret: process.env.TWEET_ACCES_TOKEN_SECRET,
 });
 
 // route section

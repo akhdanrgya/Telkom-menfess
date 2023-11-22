@@ -1,24 +1,23 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 
 const { TweetBot } = require("./tweet-bot");
 
 const app = express();
-const port = 5500;
+const port = 5000;
 
-require("dotenv").config();
 app.use(express.json());
 
 const tweetBot = new TweetBot({
-  consumer_key: process.env.TWEET_API_KEY,
-  consumer_secret: process.env.TWEET_API_KEY_SECRET,
-  acces_token: process.env.TWEET_ACCES_TOKEN,
-  acces_token_secret: process.env.TWEET_ACCES_TOKEN_SECRET,
+  consumer_key: "ZQSXNDpbWMhXPDqoNId6La3X8",
+  consumer_secret: "QLILdotFeFXruEU4zoQ8p9JTFSoCAts4ru8apBhAbljv0FCdEX",
+  acces_token: "1528770397315174400-mtwc2AbbCeti9o5bFOfqo2whp3wmfr",
+  acces_token_secret: "7BQ70Ef3gYAfpLZdKmN4W3PqwYYDBxBnqE4cc1RuUh1Qd",
 });
 
 // route section
 app.get("/adminTweet", async (req, res, next) => {
-  const admin = await TweetBot.getAdminUserInfo();
+  const admin = await tweetBot.getAdminUserInfo();
+  res.json(admin)
 });
 
 app.get("/", (req, res) => {
